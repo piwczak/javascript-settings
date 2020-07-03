@@ -79,8 +79,6 @@ object id03DeployToStaging : BuildType({
         }
         snapshot(id03Firefox) {
         }
-		snapshot(id02IE) {
-        }
     }
 	
 	    triggers {
