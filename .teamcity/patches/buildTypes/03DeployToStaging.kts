@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.VcsTrigger
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -9,6 +11,16 @@ To apply the patch, change the buildType with id = '03DeployToStaging'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("03DeployToStaging")) {
+    triggers {
+        val trigger1 = find<VcsTrigger> {
+            vcs {
+                branchFilter = ""
+            }
+        }
+        trigger1.apply {
+        }
+    }
+
     dependencies {
         expect(RelativeId("02Chrome")) {
             snapshot {
