@@ -102,7 +102,7 @@ object id03Firefox : BuildType({
 object id02IE : BuildType({
     templates(Template_1)
     id("02IE")
-    name = "03. IE"
+    name = "02. IE"
 
     params {
         param("Browser", "IE")
