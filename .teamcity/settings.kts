@@ -36,6 +36,7 @@ project {
     buildType(id02Chrome)
     buildType(id01FastTests)
     buildType(id03Firefox)
+	buildType(id02IE)
 
     template(Template_1)
 }
@@ -78,6 +79,8 @@ object id03DeployToStaging : BuildType({
         }
         snapshot(id03Firefox) {
         }
+		snapshot(id02IE) {
+        }
     }
 })
 
@@ -88,6 +91,21 @@ object id03Firefox : BuildType({
 
     params {
         param("Browser", "Firefox")
+    }
+
+    dependencies {
+        snapshot(id01FastTests) {
+        }
+    }
+})
+
+object id02IE : BuildType({
+    templates(Template_1)
+    id("02IE")
+    name = "03. IE"
+
+    params {
+        param("Browser", "IE")
     }
 
     dependencies {
