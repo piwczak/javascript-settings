@@ -92,7 +92,7 @@ xcopy /S /I /Y app \inetpub\wwwroot\klondike\
         }
     }
 	
-	    triggers {
+	triggers {
         vcs {
             id = "vcsTrigger"
             branchFilter = ""
@@ -122,11 +122,6 @@ object id02IE : BuildType({
 
     params {
         param("Browser", "IE")
-    }
-
-    dependencies {
-        snapshot(id01FastTests) {
-        }
     }
 })
 
