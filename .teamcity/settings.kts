@@ -73,6 +73,17 @@ object id03DeployToStaging : BuildType({
     vcs {
         root(HttpsGithubComPiwczakTeamcityCourseCards)
     }
+	
+	steps {
+        script {
+            name = "IIS Deploy"
+            id = "RUNNER_6"
+            scriptContent = """
+				rmdir /S /Q \inetpub\wwwroot
+				xcopy /S /I /Y app \inetpub\wwwroot\klondike\
+			"""
+        }
+    }
 
     dependencies {
         snapshot(id02Chrome) {
