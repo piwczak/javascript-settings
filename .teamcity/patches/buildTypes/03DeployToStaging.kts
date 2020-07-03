@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
@@ -11,10 +12,12 @@ accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("03DeployToStaging")) {
     triggers {
-        remove {
+        val trigger1 = find<VcsTrigger> {
             vcs {
                 branchFilter = ""
             }
+        }
+        trigger1.apply {
         }
     }
 
