@@ -33,7 +33,6 @@ project {
     vcsRoot(HttpsGithubComPiwczakTeamcityCourseCards)
 
     buildType(id03DeployToStaging)
-    buildType(id02IE)
     buildType(id02Chrome)
     buildType(id01FastTests)
     buildType(id03Firefox)
@@ -63,16 +62,6 @@ object id02Chrome : BuildType({
     dependencies {
         snapshot(id01FastTests) {
         }
-    }
-})
-
-object id02IE : BuildType({
-    templates(Template_1)
-    id("02IE")
-    name = "02. IE"
-
-    params {
-        param("Browser", "IE")
     }
 })
 
