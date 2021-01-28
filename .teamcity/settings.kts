@@ -28,14 +28,14 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.1"
 
 project {
-    description = "My Js Project"
+    description = "My Js Project with VCS settings stored on github"
 
     vcsRoot(HttpsGithubComPiwczakTeamcityCourseCards)
 
     buildType(id03DeployToStaging)
     buildType(id02Chrome)
     buildType(id01FastTests)
-    buildType(id03Firefox)
+    buildType(id02Firefox)
 
     template(Template_1)
 }
@@ -94,16 +94,16 @@ object id03DeployToStaging : BuildType({
             reuseBuilds = ReuseBuilds.NO
             onDependencyFailure = FailureAction.FAIL_TO_START
         }
-        snapshot(id03Firefox) {
+        snapshot(id02Firefox) {
             reuseBuilds = ReuseBuilds.NO
             onDependencyFailure = FailureAction.FAIL_TO_START
         }
     }
 })
 
-object id03Firefox : BuildType({
+object id02Firefox : BuildType({
     templates(Template_1)
-    id("03Firefox")
+    id("02Firefox")
     name = "02. Firefox"
 
     params {
