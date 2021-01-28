@@ -36,6 +36,7 @@ project {
     buildType(id02Chrome)
     buildType(id01FastTests)
     buildType(id02Firefox)
+	buildType(id02IE)
 
     template(Template_1)
 }
@@ -98,6 +99,10 @@ object id03DeployToStaging : BuildType({
             reuseBuilds = ReuseBuilds.NO
             onDependencyFailure = FailureAction.FAIL_TO_START
         }
+		snapshot(id02IE) {
+            reuseBuilds = ReuseBuilds.NO
+            onDependencyFailure = FailureAction.FAIL_TO_START
+        }
     }
 })
 
@@ -108,6 +113,21 @@ object id02Firefox : BuildType({
 
     params {
         param("Browser", "Firefox")
+    }
+
+    dependencies {
+        snapshot(id01FastTests) {
+        }
+    }
+})
+
+object id02IE : BuildType({
+    templates(Template_1)
+    id("02IE")
+    name = "02. IE"
+
+    params {
+        param("Browser", "IE")
     }
 
     dependencies {
