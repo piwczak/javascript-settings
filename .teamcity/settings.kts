@@ -36,7 +36,6 @@ project {
     buildType(id02Chrome)
     buildType(id01FastTests)
     buildType(id02Firefox)
-	buildType(id02IE)
 
     template(Template_1)
 }
@@ -96,10 +95,6 @@ object id03DeployToStaging : BuildType({
             onDependencyFailure = FailureAction.FAIL_TO_START
         }
         snapshot(id02Firefox) {
-            reuseBuilds = ReuseBuilds.NO
-            onDependencyFailure = FailureAction.FAIL_TO_START
-        }
-		snapshot(id02IE) {
             reuseBuilds = ReuseBuilds.NO
             onDependencyFailure = FailureAction.FAIL_TO_START
         }
